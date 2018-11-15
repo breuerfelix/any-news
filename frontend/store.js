@@ -7,10 +7,10 @@ class store {
 		};
 	}
 
-	set(object) {
+	set(newState) {
 		this.state = {
 			...this.state,
-			...object
+			...newState
 		};
 
 		redraw();
