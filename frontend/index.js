@@ -1,5 +1,13 @@
 import * as m from 'mithril';
+import Layout from './layout';
+import Hot from './hot';
+import New from './new';
 
-var root = document.body;
-
-m.render(root, 'Hello world');
+m.render(document.body, '/', {
+	'/': {
+		render: () => m(Layout, m(Hot))
+	},
+	'/new': {
+		render: () => m(Layout, m(New))
+	}
+});
