@@ -2,11 +2,11 @@ import * as m from 'mithril';
 import store from '../store';
 
 export default class Logout {
-	oninit() {
+	oncreate() {
+		store.set({ loggedIn: false });
 	}
 
 	view() {
-		store.set({ loggedIn: false });
 		return m('div', 'you have been logged out.');
 	}
 }
