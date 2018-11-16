@@ -1,3 +1,5 @@
+import 'styles/main.css';
+
 import m from 'mithril';
 
 import Layout from 'layout';
