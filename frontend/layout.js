@@ -1,10 +1,10 @@
 import m from 'mithril';
-import { store } from 'core';
-import { language as lang } from 'other';
+import { Store } from 'core';
+import { Language as lang } from 'other';
 
 export default class Layout {
 	view({ children }) {
-		const { loggedIn } = store.get();
+		const { loggedIn } = Store.get();
 		const loginRef = loggedIn ? '/#!/logout' : '/#!/login';
 
 		return m('.base-layout', [
