@@ -5,9 +5,7 @@ import { ListItem } from 'components';
 
 export default class Hot extends Component {
 	oninit() {
-		this.state = {
-			posts: []
-		};
+		this.initState({ posts: [] });
 	}
 	
 	oncreate() {
@@ -16,8 +14,8 @@ export default class Hot extends Component {
 	}
 
 	view() {
-		const posts = this.state.posts.map((post, index) => m(ListItem, { index: index + 1, post }));
+		const posts = this.getState('posts').map((post, index) => m(ListItem, { index: index + 1, post }));
 
-		return m('.hot .list', 	posts);
+		return m('.hot .list', posts);
 	}
 }

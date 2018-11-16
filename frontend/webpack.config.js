@@ -37,7 +37,8 @@ module.exports = {
 						'@babel/env'
 					],
 					plugins: [
-						[ '@babel/plugin-proposal-decorators' , { legacy: true } ]
+						[ '@babel/plugin-proposal-decorators' , { legacy: true } ],
+						'@babel/plugin-proposal-class-properties'
 					]
 				}
 			},

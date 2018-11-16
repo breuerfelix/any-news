@@ -1,19 +1,20 @@
 import { redraw } from 'mithril';
 
 export default class Component {
-	oninit() {
-		this.state = {};
-	}
+	#state = {};
 
-	setState(newState, doRedraw = true) {
-		if(!this.state) throw 'state not defined. initialize in oninit() function.';
+	initState = initState => this.setState(initState, false);
 
-		this.state = {
-			...this.state,
+	getState = (key = null) => key ? this.#state[key] : this.#state;
+
+	setState = (newState, doRedraw = true) => {
+		if(!this.#state) throw 'state not defined. initialize in oninit() function.';
+
+		this.#state = {
+			...this.#state,
 			...newState
 		};
 
 		if(doRedraw) redraw();
 	}
-
 }
