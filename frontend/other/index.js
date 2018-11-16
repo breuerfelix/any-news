@@ -1,4 +1,3 @@
-import language from './language';
-console.log('language')
+import Language from './language';
 
-export { language };
+export { Language };

@@ -3,7 +3,7 @@ import 'styles/main.css';
 import m from 'mithril';
 
 import Layout from 'layout';
-import { Hot, Recent, Login, Logout } from 'site';
+import { Hot, Recent, Login, Logout } from 'sites';
 
 m.route.prefix('#!');
 m.route(document.body, '/', {
