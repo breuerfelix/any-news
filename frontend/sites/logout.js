@@ -1,9 +1,9 @@
 import m from 'mithril';
-import { store } from 'core';
+import { Store } from 'core';
 
 export default class Logout {
 	oncreate() {
-		store.set({ loggedIn: false });
+		Store.set({ loggedIn: false });
 	}
 
 	view() {
