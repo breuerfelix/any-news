@@ -10,7 +10,9 @@ export default class Layout {
 		return m('.base-layout', [
 			m('.navbar', [
 				m('a', { class: 'item left', href: '/#!/' }, lang.get('hot')),
+				m('.divider', '|'),
 				m('a', { class: 'item left', href: '/#!/recent' }, lang.get('recent')),
+				m('.divider', '|'),
 				m('a', { class: 'item left', href: loginRef }, loggedIn ? lang.get('logout') : lang.get('login')),
 			]),
 			children,
