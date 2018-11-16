@@ -1,5 +1,5 @@
-import * as m from 'mithril';
-import store from '../store';
+import m from 'mithril';
+import { store } from 'core';
 
 export default class Logout {
 	oncreate() {

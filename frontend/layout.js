@@ -1,5 +1,6 @@
 import m from 'mithril';
-import store from './store';
+import { store } from 'core';
+import { language as lang } from 'other';
 
 export default class Layout {
 	view({ children }) {
@@ -8,9 +9,9 @@ export default class Layout {
 
 		return m('.base-layout', [
 			m('.navbar', [
-				m('a', { class: 'item left', href: '/#!/' }, 'hot'),
-				m('a', { class: 'item left', href: '/#!/recent' }, 'recent'),
-				m('a', { class: 'item left', href: loginRef }, loggedIn ? 'logout' : 'login'),
+				m('a', { class: 'item left', href: '/#!/' }, lang.get('hot')),
+				m('a', { class: 'item left', href: '/#!/recent' }, lang.get('recent')),
+				m('a', { class: 'item left', href: loginRef }, loggedIn ? lang.get('logout') : lang.get('login')),
 			]),
 			children,
 			m('.footer', 'footer')
