@@ -1,7 +1,7 @@
 import m from 'mithril';
-import { getHotPosts } from 'service';
+import { getHotPosts } from 'services';
 import { Component } from 'core';
-import { ListItem } from 'component';
+import { ListItem } from 'components';
 
 export default class Hot extends Component {
 	oninit() {

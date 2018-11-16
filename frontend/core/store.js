@@ -1,6 +1,6 @@
 import { redraw } from 'mithril';
 
-class store {
+class Store {
 	constructor() {
 		this.state = {
 			loggedIn: false
@@ -21,4 +21,4 @@ class store {
 	}
 }
 
-export default new store();
+export default new Store();

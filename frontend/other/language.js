@@ -1,4 +1,4 @@
-class language {
+class Language {
 	constructor() {
 		this.dict = {};
 	}
@@ -10,4 +10,4 @@ class language {
 	}
 }
 
-export default new language();
+export default new Language();
