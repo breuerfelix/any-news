@@ -1,11 +1,7 @@
 import m from 'mithril';
 
-import Layout from './layout';
-import Hot from './sites/hot';
-import Recent from './sites/recent';
-
-import Login from './sites/login';
-import Logout from './sites/logout';
+import Layout from 'layout';
+import { Hot, Recent, Login, Logout } from 'site';
 
 m.route.prefix('#!');
 m.route(document.body, '/', {

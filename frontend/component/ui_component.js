@@ -1,7 +1,6 @@
 import m from 'mithril';
-import store from '../store';
 
-export default class Login {
+export default class UIComponent {
 	oncreate() {
 		store.set({ loggedIn: true });
 	}
