@@ -1,4 +1,4 @@
-import Store from './store';
+import store from './store';
 import Component from './component';
 
-export { Component, Store };
+export { Component, store };
