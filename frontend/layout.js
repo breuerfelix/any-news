@@ -7,7 +7,7 @@ export default class Layout {
 			m(NavBar),
 			m('.content', [
 				children,
-				m('.footer', 'footer')
+				m('.footer', '')
 			])
 		]);
 	}
