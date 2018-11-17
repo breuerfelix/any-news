@@ -40,19 +40,26 @@ export default class ListItem {
 		if(numComments == 1) return comments + ' ' + lang.get('COMMENT');
 	}
 
+	getPointsString(points) {
+		let pointsNumber = Number(points);
+		if(pointsNumber < 1000) return pointsNumber;
+		return Math.round(pointsNumber / 100) / 10 + 'k';
+	}
+
 	view({ attrs }) {
 		const { post, index } = attrs;
 		const { title, date, comments, points, href, source, author } = post;
 
 		const time = this.getTimeString(date) + ' ' + lang.get('POST_AGO');
 		const commentString = this.getCommentString(comments);
+		const pointsString = this.getPointsString(points);
 
 		return m('li', { class: 'item post' }, [
 			m('.container-points', [
-				m('.points', points),
+				m('.points', pointsString),
 				m('.buttons', [
-					m('.up .button', '▲'),
-					m('.down .button', '▼')
+					m('.up .button', '⬆'),
+					m('.down .button', '⬇')
 				])
 			]),
 			m('.container-content', [

@@ -8,7 +8,7 @@ function getHotPosts() {
 			source: 'google.com',
 			author: 'felix',
 			comments: 10,
-			points: 600,
+			points: 10539,
 		},
 		{
 			id: 'sadf',
@@ -28,7 +28,7 @@ function getHotPosts() {
 			source: 'scriptworld.net',
 			author: 'felix',
 			comments: 1,
-			points: 600,
+			points: 2300,
 		},
 		{
 			id: 'sadf',

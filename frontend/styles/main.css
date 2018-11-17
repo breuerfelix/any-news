@@ -1,5 +1,6 @@
 body {
 	background-color: #ecf0f1;
+	font-family: Gill Sans;
 }
 
 .base-layout {
@@ -72,10 +73,17 @@ body {
 
 .container-points .buttons > .button {
 	display: inline;
+	color: grey;
+	margin: 0 2px;
 }
 
 .container-points > div {
 	text-align: center;
+}
+
+.container-points .points {
+	font-size: 90%;
+	font-weight: bold;
 }
 
 .container-content {
