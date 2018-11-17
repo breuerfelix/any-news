@@ -1,3 +1,4 @@
 import ListItem from './list_item';
+import NavBar from './navbar';
 
-export { ListItem };
+export { ListItem, NavBar };

@@ -1,3 +1,117 @@
-div {
-	color: black;
+body {
+	background-color: #ecf0f1;
 }
+
+.base-layout {
+	background-color: #f6f6ef;
+	margin-left: 10%;
+	margin-right: 10%;
+	margin-top: 1%;
+}
+
+.navbar {
+	background-color: #fc6621;
+	padding: 0.2rem 0.5rem;
+	margin-bottom: 0px;
+	list-style-type: none;
+}
+
+.navbar .item {
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.navbar .right {
+	float: right;
+}
+
+.navbar a {
+	text-decoration: none;
+	color: black;
+	font-size: 110%;
+}
+
+.navbar .divider {
+	margin-left: 7px;
+	margin-right: 7px;
+	font-size: 130%;
+}
+
+.content {
+
+}
+
+.post-list {
+	list-style-type: none;
+	margin: 0px;
+	padding: 0px;
+}
+
+.post-list .item {
+	padding: 0px;
+	width: 100%;
+	border-width: 0px 0px 1px 0px;
+	border-color: lightgrey;
+	border-style: solid;
+	box-sizing: border-box;
+
+	display: grid;
+	grid-template-columns: 1fr 15fr;
+}
+
+.post-list .item:hover {
+	border-width: 1px 2px 2px 2px;
+}
+
+.container-points {
+	border-width: 0px 1px 0px 0px;
+	border-color: lightgrey;
+	border-style: solid;
+	padding: 6px 0 0 0;
+}
+
+.container-points .buttons > .button {
+	display: inline;
+}
+
+.container-points > div {
+	text-align: center;
+}
+
+.container-content {
+	padding: 7px;
+}
+
+.container-content a {
+	text-decoration: none;
+	color: black;
+	font-size: 105%;
+
+}
+
+.container-content .source {
+	text-decoration: none;
+	color: grey;
+	font-size: 90%;
+	margin-left: .25rem;
+
+}
+
+.container-content a:visited {
+	color: grey;
+}
+
+.post .container-content .title {
+
+}
+
+.post .container-content .subtitle {
+	margin-top: 2px;
+	font-size: 80%;
+	color: grey;
+}
+
+.post .subtitle > div {
+	display: inline;
+}
+
