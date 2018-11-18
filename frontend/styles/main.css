@@ -10,25 +10,14 @@ body {
 	margin: 0;
 }
 
-@media only screen and (min-width: 768px) {
-	body {
-		font-size: 80%;
-	}
-
-	.base-layout {
-		margin-left: 10%;
-		margin-right: 10%;
-		margin-top: 1%;
-	}
-}
-
 /* navbar start */
 .navbar {
-	background-color: #fc6621;
+	background-color: #fd7438;
 	margin: 0;
 	padding: 0.2rem 0.5rem;
 	margin-bottom: 0px;
 	list-style-type: none;
+	color: black;
 }
 
 .navbar .item {
@@ -59,9 +48,7 @@ body {
 }
 /* navbar end */
 
-.content {
-
-}
+.content {}
 
 /* post list start */
 .post-list {
@@ -73,7 +60,7 @@ body {
 .post-list .item {
 	padding: 0px;
 	width: 100%;
-	border-width: 0px 0px 1px 0px;
+	border-width: 0.5px 0;
 	border-color: lightgrey;
 	border-style: solid;
 	box-sizing: border-box;
@@ -82,12 +69,17 @@ body {
 	grid-template-columns: 70px auto;
 }
 
-.post-list .item:last-child {
-	border-width: 0;
+.post-list .item:hover {
+	border-color: black;
+	border-width: 0.5px 0;
 }
 
-.post-list .item:hover {
-	border-width: 1px 2px 2px 2px;
+.post-list .item:first-child {
+	border-width: 0 0 0.5px 0;
+}
+
+.post-list .item:last-child {
+	border-width: 0.5px 0 0 0;
 }
 
 .container-points {
@@ -102,6 +94,7 @@ body {
 	color: grey;
 	margin: 0 2px;
 	cursor: pointer;
+	font-size: 120%;
 }
 
 .container-points > div {
@@ -162,18 +155,16 @@ body {
 /* footer start */
 .footer {
 	font-size: 95%;
-	padding-bottom: 10px;
 }
 
 .footer .divider {
 	height: 2px;
-	background-color: #fc6621;
-	margin-bottom: 10px;
+	background-color: #fd7438;
 }
 
 .footer .list {
 	margin: 0;
-	padding: 0;
+	padding: 10px 0;
 	list-style-type: none;
 	text-align: center;
 }
@@ -195,3 +186,19 @@ body {
 	font-size: 100%;
 }
 /* footer end */
+
+@media only screen and (min-width: 768px) {
+	body {
+		font-size: 80%;
+	}
+
+	.base-layout {
+		margin-left: 10%;
+		margin-right: 10%;
+		margin-top: 1%;
+	}
+
+	.container-points .buttons > .button {
+		font-size: 110%;
+	}
+}
