@@ -49,12 +49,12 @@ body {
 .navbar a {
 	text-decoration: none;
 	color: black;
-	font-size: 110%;
+	font-size: 105%;
 }
 
 .navbar .divider {
-	margin-left: 7px;
-	margin-right: 7px;
+	margin-left: 5px;
+	margin-right: 5px;
 	font-size: 130%;
 }
 /* navbar end */
