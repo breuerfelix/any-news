@@ -5,6 +5,11 @@ class Language {
 			NAVBAR_RECENT: 'recent',
 			NAVBAR_LOGIN: 'login',
 			NAVBAR_LOGOUT: 'logout',
+			NAVBAR_SUBMIT: 'submit',
+
+			FOOTER_GITHUB: 'GitHub',
+			FOOTER_PRIVACY_POLICY: 'Privacy Policy',
+			FOOTER_CONTACT: 'Contact',
 
 			POST_POSTED_BY: 'posted by',
 			POST_AGO: 'ago',
