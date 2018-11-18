@@ -36,8 +36,14 @@ body {
 	vertical-align: middle;
 }
 
+.navbar .item .title {
+	font-weight: bold;
+	margin-right: 10px;
+}
+
 .navbar .right {
 	float: right;
+	margin-top: 1px;
 }
 
 .navbar a {
@@ -152,3 +158,40 @@ body {
 	text-decoration: underline;
 }
 /* post list end */
+
+/* footer start */
+.footer {
+	font-size: 95%;
+	padding-bottom: 10px;
+}
+
+.footer .divider {
+	height: 2px;
+	background-color: #fc6621;
+	margin-bottom: 10px;
+}
+
+.footer .list {
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+	text-align: center;
+}
+
+.footer .item {
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.footer a {
+	text-decoration: none;
+	color: black;
+	font-size: 95%;
+}
+
+.footer .link-divider {
+	margin-left: 5px;
+	margin-right: 5px;
+	font-size: 100%;
+}
+/* footer end */
