@@ -46,20 +46,49 @@ export default class ListItem {
 		return Math.round(pointsNumber / 100) / 10 + 'k';
 	}
 
+	getSourceString(href) {
+		// extracts hostname
+		const matches = href.match(/^https?\:\/\/([^\/:?#]+)(?:[\/:?#]|$)/i);
+		let source = matches && matches[1]; 
+		let split = source.split('.');
+		if(split.length <= 2) return source;
+
+		// removes subdomain prefix
+		split.shift();
+		return split.join('.');
+	}
+
+	upVote = () => {
+		console.log('upvote');
+
+	}
+
+	downVote = () => {
+		console.log('downvote');
+
+	}
+
 	view({ attrs }) {
 		const { post, index } = attrs;
-		const { title, date, comments, points, href, source, author } = post;
+		const { id, title, date, comments, points, href, author } = post;
 
 		const time = this.getTimeString(date) + ' ' + lang.get('POST_AGO');
 		const commentString = this.getCommentString(comments);
 		const pointsString = this.getPointsString(points);
-
+		const source = this.getSourceString(href);
+		
 		return m('li', { class: 'item post' }, [
 			m('.container-points', [
 				m('.points', pointsString),
 				m('.buttons', [
-					m('.up .button', '⬆'),
-					m('.down .button', '⬇')
+					m('div', {
+						class: 'down button',
+						onclick: this.upVote
+					}, '⬆'),
+					m('div', {
+						class: 'down button',
+						onclick: this.downVote
+					}, '⬇')
 				])
 			]),
 			m('.container-content', [
@@ -67,20 +96,28 @@ export default class ListItem {
 					m('a', {
 						class: 'link',
 						href,
+						target: '_blank'
 					},
 					title),
-					m('a', {
+					m('div', {
 						class: 'source',
-						href: source
 					},
 					`(${source})`),
 				]),
 				m('.subtitle', [
-					m('.author', `${lang.get('POST_POSTED_BY')} ${author}`),
+					m('a', {
+						class: 'author',
+						href: `/#!/user/${author}`
+					}, `${lang.get('POST_POSTED_BY')} ${author}`),
 					m('.divider', ' | '),
-					m('.time', time),
+					m('div', {
+						class: 'time'
+					}, time),
 					m('.divider', ' | '),
-					m('.comments', commentString)
+					m('a', {
+						class: 'comments',
+						href: `/#!/posts/${id}`
+					}, commentString)
 				])
 			]),
 		]);
