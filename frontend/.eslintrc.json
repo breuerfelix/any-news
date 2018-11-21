@@ -7,13 +7,10 @@
 		"sourceType": "module",
 		"ecmaVersion": 2018,
 		"ecmaFeatures": {
-			"experimentalDecorators": true,
-			"jsx": true
+			"experimentalDecorators": true
 		}
 	},
 	"rules": {
-		"no-undef": "off",
-		"no-constant-condition": "off",
 		"indent": [
 			"error",
 			"tab",
@@ -34,6 +31,6 @@
 			"always"
 		],
 		"no-console": 0,
-		"no-empty-pattern": 0
+		"no-unused-vars": [2, { "vars": "local" }]
 	}
 }
