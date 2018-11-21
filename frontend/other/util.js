@@ -1,5 +1,11 @@
 import { Language as lang } from 'other';
 
+function getPointsString(points) {
+	let pointsNumber = Number(points);
+	if(pointsNumber < 1000) return pointsNumber;
+	return Math.round(pointsNumber / 100) / 10 + 'k';
+}
+
 function getTimeString(date) {
 	const dateNumber = Number(date);
 	const now = Number(Date.now());
@@ -31,4 +37,4 @@ function doSomething(value, first, second, langString) {
 	return diff;
 }
 
-export { getTimeString };
+export { getTimeString, getPointsString };

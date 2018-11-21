@@ -4,12 +4,6 @@ import { Language as lang } from 'other';
 
 //TODO translate this site
 export default class Login extends Component {
-	state = {
-		username: null,
-		password: null,
-		email: null
-	}
-
 	login = () => {
 
 	}

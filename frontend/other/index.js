@@ -1,5 +1,5 @@
 import Language from './language';
 import settings from './settings';
-import { getTimeString } from './util';
+import { getTimeString, getPointsString } from './util';
 
-export { Language, settings, getTimeString };
+export { Language, settings, getTimeString, getPointsString };
