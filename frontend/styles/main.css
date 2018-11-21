@@ -32,7 +32,7 @@ body {
 
 .navbar .right {
 	float: right;
-	margin-top: 1px;
+	margin-top: 2px;
 }
 
 .navbar a {
@@ -164,7 +164,7 @@ body {
 
 .footer .list {
 	margin: 0;
-	padding: 10px 0;
+	padding: 15px 0 15px 0;
 	list-style-type: none;
 	text-align: center;
 }
@@ -187,6 +187,64 @@ body {
 }
 /* footer end */
 
+.text-content {
+	margin: 20px;
+}
+
+.text-content .title {
+	font-weight: bold;
+	padding-bottom: 15px;
+}
+
+/* single post start */
+.single-post .post-list .item {
+	border-width: 0 0 1px 0;
+}
+
+.single-post textarea {
+	width: 450px;
+	height: 80px;
+	font-size: 90%;
+}
+
+.single-post button {
+	margin: 10px 0 20px 0;
+}
+/* single post end */
+
+/* login start */
+.input-form {
+	margin-bottom: 10px;
+}
+
+.text-content .divider {
+	height: 20px;
+}
+
+.text-content .login-divider {
+	height: 10px;
+}
+
+.input-form .label {
+	margin-bottom: 5px;
+}
+/* login end */
+
+/* comment start */
+.comment .info {
+	font-size: 85%;
+	color: grey;
+}
+
+.comment .info .divider {
+	margin: 0 3px;
+}
+
+.comment .info > div {
+	display: inline;
+}
+/* comment end */
+
 @media only screen and (min-width: 768px) {
 	body {
 		font-size: 80%;
@@ -200,5 +258,15 @@ body {
 
 	.container-points .buttons > .button {
 		font-size: 110%;
+	}
+
+	.text-content {
+		margin: 30px;
+	}
+
+	.single-post textarea {
+		width: 450px;
+		height: 80px;
+		font-size: 90%;
 	}
 }

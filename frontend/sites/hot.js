@@ -14,7 +14,7 @@ export default class Hot extends Component {
 	}
 
 	view() {
-		const posts = this.getState('posts').map((post, index) => m(ListItem, { index: index + 1, post }));
+		const posts = this.getState('posts').map((post, index) => m(ListItem, { post }));
 
 		return m('ul', { class: 'post-list' }, posts);
 	}

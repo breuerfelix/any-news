@@ -1,6 +1,6 @@
 import m from 'mithril';
 import { Store } from 'core';
-import { Language as lang } from 'other';
+import { Language as lang, settings } from 'other';
 
 export default class NavBar {
 	view() {
@@ -8,10 +8,9 @@ export default class NavBar {
 		const loginRef = loggedIn ? '/logout' : '/login';
 		const loginIdent = loggedIn ? 'NAVBAR_LOGOUT' : 'NAVBAR_LOGIN';
 
-		// TODO extract title
 		return m('ul', { class: 'navbar' }, [
 			m('li', { class: 'item left' }, [
-				m('a', { class: 'title', href: '/#!/' }, 'Climate News')
+				m('a', { class: 'title', href: '/', oncreate: m.route.link }, settings.title)
 			]),
 			m(NavBarItem, { classes: 'left', href: '/', ident: 'NAVBAR_HOT' }),
 			m('li', { class: 'item divider' }, '|'),
@@ -24,14 +23,11 @@ export default class NavBar {
 }
 
 class NavBarItem {
-	prefix = '/#!';
-
 	view({ attrs }) {
 		let { classes, href, ident } = attrs;
-		href = this.prefix + href;
 
 		return m('li', { class: `item ${classes}` }, [
-			m('a', { href }, lang.get(ident)),
+			m('a', { href, oncreate: m.route.link }, lang.get(ident)),
 		]);
 	}
 }
