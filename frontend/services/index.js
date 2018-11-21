@@ -49,4 +49,26 @@ function getHotPosts() {
 	];
 }
 
-export { getHotPosts };
+function getPost(id) {
+	return {
+		id: 'sadf',
+		date: '1542488273110',
+		title: 'I dont want this title to be grey!',
+		href: 'http://spiegel.com',
+		author: 'testman',
+		comments: 10,
+		points: 600,
+		commentList: [
+			{
+				id: 'lskdf',
+				author: 'janine',
+				date: '1542488273110',
+				text: 'hallo this a comment',
+				points: 500,
+				replies: []
+			}
+		]
+	};
+}
+
+export { getHotPosts, getPost };

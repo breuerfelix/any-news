@@ -7,12 +7,14 @@ class Language {
 			NAVBAR_LOGOUT: 'logout',
 			NAVBAR_SUBMIT: 'submit',
 
-			FOOTER_GITHUB: 'GitHub',
-			FOOTER_PRIVACY_POLICY: 'Privacy Policy',
+			FOOTER_GITHUB: 'any-news',
+			FOOTER_PRIVACY: 'Privacy Policy',
 			FOOTER_CONTACT: 'Contact',
 
 			POST_POSTED_BY: 'posted by',
 			POST_AGO: 'ago',
+			POST_COMMENT_PLACEHOLDER: 'share your thoughts',
+			POST_ADD_COMMENT: 'add comment',
 
 			SECOND: 'second',
 			SECONDS: 'seconds',
@@ -30,6 +32,9 @@ class Language {
 			NO: 'no',
 			COMMENT: 'comment',
 			COMMENTS: 'comments',
+			DISCUSS: 'discuss',
+
+			FORGOT_PASSWORD: 'Forgot your password?',
 		};
 	}
 
