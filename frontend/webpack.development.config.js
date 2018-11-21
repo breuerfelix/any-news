@@ -1,6 +1,7 @@
 const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
 const webpack = require('webpack');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 
 module.exports = {
 	// entry file - starting point for the app
@@ -9,7 +10,8 @@ module.exports = {
 		'./'
 	] ,
 
-	mode: 'production',
+	mode: 'development',
+	devtool: 'cheap-module-eval-source-map',
 
 	resolve: {
 		extensions: [ '.js', '.jsx' ],
@@ -54,7 +56,7 @@ module.exports = {
 			title: 'any-news',
 			template: path.join(__dirname, '/index.html')
 		}),
-		new webpack.HotModuleReplacementPlugin()
+		new webpack.HotModuleReplacementPlugin(),
 	],
 
 	devServer: {

@@ -1,3 +1,204 @@
-div {
+body {
+	background-color: #ecf0f1;
+	font-family: 'Noto Sans', sans-serif;
+	font-size: 90%;
+	margin: 0 !important;
+}
+
+.base-layout {
+	background-color: #f6f6ef;
+	margin: 0;
+}
+
+/* navbar start */
+.navbar {
+	background-color: #fd7438;
+	margin: 0;
+	padding: 0.2rem 0.5rem;
+	margin-bottom: 0px;
+	list-style-type: none;
 	color: black;
+}
+
+.navbar .item {
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.navbar .item .title {
+	font-weight: bold;
+	margin-right: 10px;
+}
+
+.navbar .right {
+	float: right;
+	margin-top: 1px;
+}
+
+.navbar a {
+	text-decoration: none;
+	color: black;
+	font-size: 105%;
+}
+
+.navbar .divider {
+	margin-left: 5px;
+	margin-right: 5px;
+	font-size: 130%;
+}
+/* navbar end */
+
+.content {}
+
+/* post list start */
+.post-list {
+	list-style-type: none;
+	margin: 0px;
+	padding: 0px;
+}
+
+.post-list .item {
+	padding: 0px;
+	width: 100%;
+	border-width: 0.5px 0;
+	border-color: lightgrey;
+	border-style: solid;
+	box-sizing: border-box;
+
+	display: grid;
+	grid-template-columns: 70px auto;
+}
+
+.post-list .item:hover {
+	border-color: black;
+	border-width: 0.5px 0;
+}
+
+.post-list .item:first-child {
+	border-width: 0 0 0.5px 0;
+}
+
+.post-list .item:last-child {
+	border-width: 0.5px 0 0 0;
+}
+
+.container-points {
+	border-width: 0px 1px 0px 0px;
+	border-color: lightgrey;
+	border-style: solid;
+	padding: 6px 0 0 0;
+}
+
+.container-points .buttons > .button {
+	display: inline;
+	color: grey;
+	margin: 0 2px;
+	cursor: pointer;
+	font-size: 120%;
+}
+
+.container-points > div {
+	text-align: center;
+}
+
+.container-points .points {
+	font-size: 90%;
+	font-weight: bold;
+}
+
+.container-content {
+	padding: 7px;
+}
+
+.container-content a {
+	text-decoration: none;
+	color: black;
+	font-size: 105%;
+}
+
+.container-content .source {
+	text-decoration: none;
+	color: grey;
+	font-size: 85%;
+	margin-left: .25rem;
+
+}
+
+.container-content a:visited {
+	color: grey;
+}
+
+.post .container-content .title > div, a {
+	display: inline;
+}
+
+.post .container-content .subtitle {
+	margin-top: 2px;
+	font-size: 80%;
+	color: grey;
+}
+
+.post .subtitle > div {
+	display: inline;
+}
+
+.post .subtitle > a {
+	color: grey;
+	font-size: 100%;
+}
+
+.post .subtitle > a:hover {
+	text-decoration: underline;
+}
+/* post list end */
+
+/* footer start */
+.footer {
+	font-size: 95%;
+}
+
+.footer .divider {
+	height: 2px;
+	background-color: #fd7438;
+}
+
+.footer .list {
+	margin: 0;
+	padding: 10px 0;
+	list-style-type: none;
+	text-align: center;
+}
+
+.footer .item {
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.footer a {
+	text-decoration: none;
+	color: black;
+	font-size: 95%;
+}
+
+.footer .link-divider {
+	margin-left: 5px;
+	margin-right: 5px;
+	font-size: 100%;
+}
+/* footer end */
+
+@media only screen and (min-width: 768px) {
+	body {
+		font-size: 80%;
+	}
+
+	.base-layout {
+		margin-left: 10%;
+		margin-right: 10%;
+		margin-top: 1%;
+	}
+
+	.container-points .buttons > .button {
+		font-size: 110%;
+	}
 }
