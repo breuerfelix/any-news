@@ -1,5 +1,5 @@
 import m from 'mithril';
-import { Language as lang, getTimeString } from 'other';
+import { Language as lang, getTimeString, getPointsString } from 'other';
 
 export default class ListItem {
 	getCommentString(comments) {
@@ -7,12 +7,6 @@ export default class ListItem {
 		if(numComments > 1) return comments + ' ' + lang.get('COMMENTS');
 		if(numComments <= 0) return lang.get('DISCUSS');
 		if(numComments == 1) return comments + ' ' + lang.get('COMMENT');
-	}
-
-	getPointsString(points) {
-		let pointsNumber = Number(points);
-		if(pointsNumber < 1000) return pointsNumber;
-		return Math.round(pointsNumber / 100) / 10 + 'k';
 	}
 
 	getSourceString(href) {
@@ -43,7 +37,7 @@ export default class ListItem {
 
 		const time = getTimeString(date) + ' ' + lang.get('POST_AGO');
 		const commentString = this.getCommentString(comments);
-		const pointsString = this.getPointsString(points);
+		const pointsString = getPointsString(points);
 		const source = this.getSourceString(href);
 		
 		return m('li', { class: 'item post' }, [

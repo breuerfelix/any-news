@@ -15,6 +15,10 @@ class Language {
 			POST_AGO: 'ago',
 			POST_COMMENT_PLACEHOLDER: 'share your thoughts',
 			POST_ADD_COMMENT: 'add comment',
+			POST_POINTS: 'points',
+			POST_REPLY: 'reply',
+			POST_REPORT: 'report',
+			POST_EDIT: 'edit',
 
 			SECOND: 'second',
 			SECONDS: 'seconds',

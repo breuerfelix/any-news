@@ -3,17 +3,16 @@ import Layout from 'layout';
 import { Component } from 'core';
 import { ListItem } from 'components';
 import { getPost } from 'services';
-import { Language as lang, getTimeString } from 'other';
+import { Language as lang, getTimeString, getPointsString } from 'other';
 
 export default class Post extends Component {
-	state = {
-		post: null,
-		comment: null
-	}
-
 	oninit({ attrs }) {
 		const { id } = attrs;
 		if(!id) m.route.set('/404');
+
+		this.initState({
+			showReplyInput: true
+		});
 
 		const post = getPost(id);
 
@@ -25,7 +24,6 @@ export default class Post extends Component {
 		if(!comment) return;
 
 		const post = this.getState('post');
-		console.log(post)
 
 		post.commentList.push({
 			id: 'jadsf',
@@ -36,7 +34,7 @@ export default class Post extends Component {
 			text: comment.replace('\n', '</br>')
 		});
 
-		this.setState({ post });
+		this.setState({ post, showReplyInput: false }, false);
 
 		// TODO send comment to server
 		// TODO sanitize html input
@@ -44,44 +42,138 @@ export default class Post extends Component {
 	}
 
 	view() {
-		const post = this.getState('post');
+		const { post, showReplyInput } = this.getState();
 		if(!post) return m(Layout, 'loading ...');
 
 		const { commentList } = post;
-		const commentViews = commentList.map(comment => m(Comment, { comment }));
+		const commentViews = commentList.map(comment => m(Comment, {
+			key: comment.id,
+			comment
+		}));
 
 		return m(Layout, m('.single-post', [
 			m('ul', { class: 'post-list' }, m(ListItem, { post })),
 			m('.text-content', [
-				m('textarea', {
-					rows: 5,
-					cols: 50,
-					placeholder: lang.get('POST_COMMENT_PLACEHOLDER'),
-					oninput: m.withAttr('value', (v) => this.setState({ comment: v })),
-					value: this.getState('comment')
-				}),
-				m('div'),
-				m('button', { onclick: this.addComment }, lang.get('POST_ADD_COMMENT')),
+				showReplyInput ? 
+					m(AddComment, {
+						onclick: this.addComment,
+						value: this.getState('comment'),
+						oninputHandler: (v) => this.setState({ comment: v }, false)
+					}) : '',
 				commentViews
 			])
 		]));
 	}
 }
 
-class Comment {
-	view({ attrs }) {
+class Comment extends Component {
+	oninit({ attrs }) {
 		const { comment } = attrs;
-		const { author, date, text } = comment;
+		this.initState({ showReplyInput: false, commentValue: null, comment });
+	}
+
+	reply = () => {
+		this.setState({ showReplyInput: !this.getState('showReplyInput') }, false);
+	}
+
+	report = () => {
+
+	}
+
+	voteUp = () => {
+
+	}
+
+	voteDown = () => {
+
+	}
+
+	addComment = () => {
+		const { comment, commentValue } = this.getState();
+		if(!commentValue) return;
+
+		comment.replies.push({
+			id: 'jadsf',
+			author: 'felix',
+			date: Date.now(),
+			points: 10,
+			replies: [],
+			text: commentValue.replace('\n', '</br>')
+		});
+
+		this.setState({ comment, showReplyInput: false }, false);
+	}
+
+	view() {
+		const { comment } = this.getState();
+		const { author, date, text, points, replies } = comment;
 
 		const timeString = getTimeString(date) + ' ' + lang.get('POST_AGO');
+		const repliesViews = replies.map(reply => m(Comment, {
+			key: reply.id,
+			comment: reply
+		}));
 
-		return m('.comment', [
-			m('.info', [
-				m('div', lang.get('POST_POSTED_BY') + ' ' + author),
-				m('.divider', '|'),
-				m('div', timeString)
+		const reply = this.getState('showReplyInput');
+
+		return m('.comment-section', [
+			m('.voting', [
+				m('.vote-up .link', { onclick: this.voteUp }, '⬆'),
+				m('.vote-down .link', { onclick: this.voteDown }, '⬇'),
+				m('.v-line')
 			]),
-			m('.text', m.trust(text))
+			m('.comment', {
+			}, [
+				m('.comment-content', [
+					m('.info', [
+						m('div', lang.get('POST_POSTED_BY') + ' ' + author),
+						m('.divider', '|'),
+						m('div', getPointsString(points) + ' ' + lang.get('POST_POINTS')),
+						m('.divider', '|'),
+						m('div', timeString)
+					]),
+					m('.text', m.trust(text)),
+					m('.info', [
+						m('div', {
+							class: 'link',
+							onclick: this.reply
+						}, lang.get('POST_REPLY')),
+						m('.divider'),
+						m('div', {
+							class: 'link',
+							onclick: this.report
+						}, lang.get('POST_REPORT')),
+						m('.divider'),
+						m('div', {
+							class: 'link',
+							onclick: this.edit
+						}, lang.get('POST_EDIT'))
+					])
+				]),
+				reply ? m(AddComment, {
+					oninputHandler: (v) => this.setState({ commentValue: v }, false),
+					onclick: this.addComment,
+					value: this.getState('commentValue')
+				}) : '',
+				m('.replies', repliesViews)
+			])
+		]);
+	}
+}
+
+class AddComment {
+	view({ attrs }) {
+		const { oninputHandler, value, onclick } = attrs;
+		return m('div', [
+			m('textarea', {
+				rows: 5,
+				cols: 50,
+				placeholder: lang.get('POST_COMMENT_PLACEHOLDER'),
+				oninput: m.withAttr('value', oninputHandler),
+				value
+			}),
+			m('div'),
+			m('button', { onclick }, lang.get('POST_ADD_COMMENT'))
 		]);
 	}
 }
