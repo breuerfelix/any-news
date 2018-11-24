@@ -1,12 +1,13 @@
 import m from 'mithril';
-import { Language as lang, getTimeString, getPointsString } from 'other';
+import { getTimeString, getPointsString } from 'other';
+import { translate } from 'services';
 
 export default class ListItem {
 	getCommentString(comments) {
 		const numComments = Number(comments);
-		if(numComments > 1) return comments + ' ' + lang.get('COMMENTS');
-		if(numComments <= 0) return lang.get('DISCUSS');
-		if(numComments == 1) return comments + ' ' + lang.get('COMMENT');
+		if(numComments > 1) return comments + ' ' + translate('COMMENTS');
+		if(numComments <= 0) return translate('DISCUSS');
+		if(numComments == 1) return comments + ' ' + translate('COMMENT');
 	}
 
 	getSourceString(href) {
@@ -35,7 +36,7 @@ export default class ListItem {
 		const { post } = attrs;
 		const { id, title, date, comments, points, href, author } = post;
 
-		const time = getTimeString(date) + ' ' + lang.get('POST_AGO');
+		const time = getTimeString(date) + ' ' + translate('POST_AGO');
 		const commentString = this.getCommentString(comments);
 		const pointsString = getPointsString(points);
 		const source = this.getSourceString(href);
@@ -72,7 +73,7 @@ export default class ListItem {
 						class: 'author',
 						href: `/user/${author}`,
 						oncreate: m.route.link
-					}, `${lang.get('POST_POSTED_BY')} ${author}`),
+					}, `${translate('POST_POSTED_BY')} ${author}`),
 					m('.divider', ' | '),
 					m('div', {
 						class: 'time'

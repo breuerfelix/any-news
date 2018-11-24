@@ -3,7 +3,8 @@ import Layout from 'layout';
 import { Component } from 'core';
 import { ListItem } from 'components';
 import { getPost } from 'services';
-import { Language as lang, getTimeString, getPointsString } from 'other';
+import { getTimeString, getPointsString } from 'other';
+import { translate } from 'services';
 
 export default class Post extends Component {
 	oninit({ attrs }) {
@@ -108,7 +109,7 @@ class Comment extends Component {
 		const { comment } = this.getState();
 		const { author, date, text, points, replies } = comment;
 
-		const timeString = getTimeString(date) + ' ' + lang.get('POST_AGO');
+		const timeString = getTimeString(date) + ' ' + translate('POST_AGO');
 		const repliesViews = replies.map(reply => m(Comment, {
 			key: reply.id,
 			comment: reply
@@ -126,9 +127,9 @@ class Comment extends Component {
 			}, [
 				m('.comment-content', [
 					m('.info', [
-						m('div', lang.get('POST_POSTED_BY') + ' ' + author),
+						m('div', translate('POST_POSTED_BY') + ' ' + author),
 						m('.divider', '|'),
-						m('div', getPointsString(points) + ' ' + lang.get('POST_POINTS')),
+						m('div', getPointsString(points) + ' ' + translate('POST_POINTS')),
 						m('.divider', '|'),
 						m('div', timeString)
 					]),
@@ -137,17 +138,17 @@ class Comment extends Component {
 						m('div', {
 							class: 'link',
 							onclick: this.reply
-						}, lang.get('POST_REPLY')),
+						}, translate('POST_REPLY')),
 						m('.divider'),
 						m('div', {
 							class: 'link',
 							onclick: this.report
-						}, lang.get('POST_REPORT')),
+						}, translate('POST_REPORT')),
 						m('.divider'),
 						m('div', {
 							class: 'link',
 							onclick: this.edit
-						}, lang.get('POST_EDIT'))
+						}, translate('POST_EDIT'))
 					])
 				]),
 				reply ? m(AddComment, {
@@ -168,12 +169,12 @@ class AddComment {
 			m('textarea', {
 				rows: 5,
 				cols: 50,
-				placeholder: lang.get('POST_COMMENT_PLACEHOLDER'),
+				placeholder: translate('POST_COMMENT_PLACEHOLDER'),
 				oninput: m.withAttr('value', oninputHandler),
 				value
 			}),
 			m('div'),
-			m('button', { onclick }, lang.get('POST_ADD_COMMENT'))
+			m('button', { onclick }, translate('POST_ADD_COMMENT'))
 		]);
 	}
 }

@@ -1,6 +1,6 @@
 import m from 'mithril';
 import { Store, Component } from 'core';
-import { Language as lang } from 'other';
+import { translate } from 'services';
 
 //TODO translate this site
 export default class Login extends Component {
@@ -32,7 +32,7 @@ export default class Login extends Component {
 			m('a', {
 				href: '/404',
 				oncreate: m.route.link
-			}, lang.get('FORGOT_PASSWORD')),
+			}, translate('FORGOT_PASSWORD')),
 
 			m('.divider'),
 			
