@@ -3,8 +3,8 @@ import localStorage from './localStorage';
 class Language {
   #table = null;
 
-  constructor(language) {
-    this.#table = Language.getTable(language);
+  constructor() {
+    this.#table = Language.getTable(localStorage.getItem('languageToken'));
   }
 
   translate = (token) => this.#table[token];
@@ -26,4 +26,4 @@ Language.defaultTable = {
   'LAYOUT_RECENT': 'Recent',
 }
 
-export default new Language(localStorage.getItem('languageToken')).translate;
+export default new Language().translate;
