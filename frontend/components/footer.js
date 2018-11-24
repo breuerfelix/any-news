@@ -1,5 +1,5 @@
 import m from 'mithril';
-import { Language as lang } from 'other';
+import { translate } from 'services';
 
 export default class Footer {
 	view() {
@@ -26,7 +26,7 @@ class FooterLink {
 		const oncreate = href.startsWith('/') ? m.route.link : null;
 
 		return m('li', { class: 'item' }, [
-			m('a', { href, oncreate }, lang.get(ident)),
+			m('a', { href, oncreate }, translate(ident)),
 		]);
 	}
 }

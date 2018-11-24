@@ -1,6 +1,7 @@
 import m from 'mithril';
 import { Store } from 'core';
-import { Language as lang, settings } from 'other';
+import { settings } from 'other';
+import { translate } from 'services';
 
 export default class NavBar {
 	view() {
@@ -27,7 +28,7 @@ class NavBarItem {
 		let { classes, href, ident } = attrs;
 
 		return m('li', { class: `item ${classes}` }, [
-			m('a', { href, oncreate: m.route.link }, lang.get(ident)),
+			m('a', { href, oncreate: m.route.link }, translate(ident)),
 		]);
 	}
 }

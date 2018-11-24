@@ -1,4 +1,4 @@
-import { Language as lang } from 'other';
+import { translate } from 'services';
 
 function getPointsString(points) {
 	let pointsNumber = Number(points);
@@ -24,16 +24,16 @@ function getTimeString(date) {
 
 	// convert to years
 	dateDiff = Math.floor(dateDiff / 12);
-	if(dateDiff == 1) return `${dateDiff} ${lang.get('YEAR')}`;
+	if(dateDiff == 1) return `${dateDiff} ${translate('YEAR')}`;
 
-	return `${dateDiff} ${lang.get('YEARS')}`;
+	return `${dateDiff} ${translate('YEARS')}`;
 }
 
 function doSomething(value, first, second, langString) {
 	let diff = Math.floor(Number(value) / Number(first));
 	if(diff > 1) langString += 'S';
 
-	if(diff / second < 1) return `${diff} ${lang.get(langString)}`;
+	if(diff / second < 1) return `${diff} ${translate(langString)}`;
 	return diff;
 }
 
