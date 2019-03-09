@@ -1,6 +1,6 @@
 const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
 const webpack = require('webpack');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
 	// entry file - starting point for the app
@@ -10,6 +10,7 @@ module.exports = {
 	] ,
 
 	mode: 'production',
+	devtool: 'none',
 
 	resolve: {
 		extensions: [ '.js', '.jsx' ],
@@ -37,13 +38,14 @@ module.exports = {
 						'@babel/env'
 					],
 					plugins: [
-						[ '@babel/plugin-proposal-decorators' , { legacy: true } ]
+						[ '@babel/plugin-proposal-decorators' , { legacy: true } ],
+						'@babel/plugin-proposal-class-properties'
 					]
 				}
 			},
 			{
 				test: /\.css$/,
-				use: [ 'style-loader', 'css-loader' ]
+				use: [ 'style-loader', { loader: 'css-loader', options: { importLoaders: 1 } }, 'postcss-loader' ]
 			}
 		]
 	},
@@ -52,25 +54,6 @@ module.exports = {
 		new HtmlWebpackPlugin({
 			title: 'any-news',
 			template: path.join(__dirname, '/index.html')
-		}),
-		new webpack.HotModuleReplacementPlugin()
-	],
-
-	devServer: {
-		// serve up any static files from src/
-		contentBase: path.join(__dirname),
-		hot: true,
-		inline: true,
-		progress: true,
-
-		proxy: {
-			'/api': 'http://localhost:3000'
-		},
-
-		// enable gzip compression:
-		compress: true,
-
-		// enable pushState() routing, as used by preact-router et al:
-		historyApiFallback: true
-	}
+		})
+	]
 };
