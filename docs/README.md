@@ -1,4 +1,6 @@
-# frontend
+# roadmap
+
+## frontend
 
 - mithril.js
 - webpack
@@ -8,15 +10,15 @@
 - prefer local state
 - global state
 - core module
-	- abstract components
-	- store
+  - abstract components
+  - store
 
-# backend
+## backend
 
 - elixir
 - socket
--
-## trending mechanics
+
+### trending mechanics
 
 - comments
 - clicks
@@ -26,15 +28,15 @@
 -> weighted for timespan, decaying over time
 -> different timespans for different categories
 
-## logging
+### logging
 
 - click events
-	- target
-	- user / anonym
-	- client
-	- timestamp
-	- location
-- requests
-- user up time
-	- login / logout
+  - target
+  - user / anonym
+  - client
+  - timestamp
+  - location
+  - requests
+  - user up time
+  - login / logout
 - tab focus / time spend
